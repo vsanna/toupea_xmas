@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="剣持刀也とピーナッツくんの年に一度の聖夜。2018年から続く熱き友情の物語。">
+  <meta property="og:title" content="刀ピークリスマス 2025">
+  <meta property="og:description" content="12/25 23:00〜 あの聖夜が、また巡る。">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>刀ピークリスマス 2025 | 12/25 23:00〜</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Serif+JP:wght@600;900&family=Shippori+Mincho:wght@400;600&display=swap" rel="stylesheet">
+  <meta name="twitter:widgets:theme" content="dark"/>
+
+  <style>
+    /* ===== CSS Variables ===== */
+    :root {
+      /* Snow/Winter colors - darker */
+      --snow-primary: #0a0a0a;
+      --snow-secondary: #1a1a1a;
+      --snow-accent: #ffffff;
+
+      /* Smooth transition colors */
+      --transition-1: #2a1a1a;
+      --transition-2: #3a1515;
+      --transition-3: #4a1010;
+
+      /* Fire/Passion colors */
+      --fire-primary: #8b0000;
+      --fire-secondary: #ff4500;
+      --fire-accent: #ffa500;
+
+      /* Fonts */
+      --font-heading: 'Noto Serif JP', serif;
+      --font-body: 'Noto Sans JP', sans-serif;
+
+      /* Spacing */
+      --section-padding: 100px;
+      --section-padding-mobile: 60px;
+    }
+
+    /* ===== Global Reset & Base Styles ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: #fff;
+      overflow-x: hidden;
+      background: linear-gradient(180deg, var(--snow-primary) 0%, var(--snow-secondary) 100%);
+      transition: background 0.3s ease;
+    }
+
+    /* ===== Scroll Progress Bar ===== */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--snow-accent) 0%, var(--fire-accent) 100%);
+      z-index: 1000;
+      box-shadow: 0 0 10px rgba(255, 165, 0, 0.6);
+      transition: width 0.1s ease;
+    }
+
+    /* ===== Snow Particles ===== */
+    #snowCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 1;
+      transition: opacity 0.5s ease;
+    }
+
+    /* ===== Hero Section ===== */
+    .hero-section {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      animation: fadeInUp 1.5s ease-out;
+    }
+
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: clamp(3.5rem, 12vw, 8rem);
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      margin-bottom: 10px;
+      text-shadow:
+        0 0 15px rgba(255, 255, 255, 0.4),
+        0 0 30px rgba(255, 255, 255, 0.3),
+        0 0 50px rgba(255, 255, 255, 0.2);
+      word-break: keep-all;
+    }
+
+    .hero-year {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 7vw, 5rem);
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      margin-bottom: 60px;
+      color: var(--snow-accent);
+      opacity: 0.9;
+      text-shadow:
+        0 0 15px rgba(255, 255, 255, 0.4),
+        0 0 30px rgba(255, 255, 255, 0.3),
+        0 0 50px rgba(255, 255, 255, 0.2);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1rem, 3vw, 1.5rem);
+      letter-spacing: 0.1em;
+      margin-bottom: 30px;
+      color: var(--snow-accent);
+      text-shadow:
+        0 0 10px rgba(255, 255, 255, 0.4),
+        0 0 20px rgba(255, 255, 255, 0.3),
+        0 0 35px rgba(255, 255, 255, 0.2);
+    }
+
+    .hero-date {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      color: var(--fire-accent);
+      text-shadow: 0 0 20px rgba(255, 165, 0, 0.6);
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: bounce 2s infinite;
+      cursor: pointer;
+    }
+
+    .scroll-indicator::before {
+      content: '↓';
+      font-size: 2rem;
+      color: var(--snow-accent);
+    }
+
+    /* ===== Timeline Section ===== */
+    .timeline-section {
+      position: relative;
+      padding: var(--section-padding) 20px;
+      z-index: 10;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .timeline-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      text-align: center;
+      margin-bottom: 80px;
+      letter-spacing: 0.1em;
+    }
+
+    .timeline-container {
+      position: relative;
+    }
+
+    /* Timeline vertical line */
+    .timeline-line {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(180deg, var(--snow-accent) 0%, var(--fire-accent) 100%);
+      transform: translateX(-50%);
+      box-shadow:
+        0 0 10px rgba(255, 165, 0, 0.5),
+        0 0 20px rgba(255, 165, 0, 0.3),
+        0 0 30px rgba(255, 165, 0, 0.2);
+      animation: glow-pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes glow-pulse {
+      0%, 100% {
+        box-shadow:
+          0 0 10px rgba(255, 165, 0, 0.5),
+          0 0 20px rgba(255, 165, 0, 0.3),
+          0 0 30px rgba(255, 165, 0, 0.2);
+      }
+      50% {
+        box-shadow:
+          0 0 15px rgba(255, 165, 0, 0.7),
+          0 0 30px rgba(255, 165, 0, 0.5),
+          0 0 45px rgba(255, 165, 0, 0.3);
+      }
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 150px;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: var(--bg-thumbnail);
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      opacity: 0.12;
+      filter: blur(3px);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .timeline-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content {
+      margin-right: 50%;
+      padding-right: 60px;
+      text-align: right;
+    }
+
+    .timeline-item:nth-child(even) .timeline-content {
+      margin-left: 50%;
+      padding-left: 60px;
+      text-align: left;
+    }
+
+    .timeline-year {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      margin-bottom: 15px;
+      color: var(--fire-accent);
+    }
+
+    .timeline-video-title {
+      font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .timeline-video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      margin-bottom: 20px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .timeline-video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .timeline-links {
+      margin-bottom: 20px;
+    }
+
+    .timeline-link {
+      display: inline-block;
+      color: var(--fire-accent);
+      text-decoration: none;
+      padding: 8px 20px;
+      border: 2px solid var(--fire-accent);
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      font-size: clamp(0.9rem, 2vw, 1rem);
+    }
+
+    .timeline-link:hover {
+      background: var(--fire-accent);
+      color: #000;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(255, 165, 0, 0.4);
+    }
+
+    .timeline-catchphrase {
+      font-family: var(--font-heading);
+      font-size: clamp(1.3rem, 3vw, 1.6rem);
+      font-weight: 600;
+      margin: 0 0 35px;
+      border-radius: 8px;
+      font-style: italic;
+    }
+
+    .timeline-quotes-cloud {
+      position: absolute;
+      top: 80px;
+      max-height: 600px;
+      line-height: 1.6;
+      opacity: 0.95;
+      overflow: hidden;
+      text-align: left;
+    }
+
+    /* Odd items (left side video) - quotes on right of timeline bar */
+    .timeline-item:nth-child(odd) .timeline-quotes-cloud {
+      left: calc(50% + 40px);
+    }
+
+    /* Even items (right side video) - quotes on left of timeline bar */
+    .timeline-item:nth-child(even) .timeline-quotes-cloud {
+      right: calc(50% + 40px);
+    }
+
+    .quote-tag {
+      display: inline;
+      padding: 2px 4px;
+      font-family: 'Shippori Mincho', 'Yu Mincho', '游明朝', serif;
+      font-weight: 400;
+      color: #ffffff;
+      background: none;
+      border: none;
+      word-break: normal;
+      overflow-wrap: break-word;
+      text-shadow:
+        0 0 8px rgba(255, 255, 255, 0.4),
+        0 0 15px rgba(255, 165, 0, 0.3),
+        0 0 25px rgba(255, 165, 0, 0.2);
+      cursor: default;
+    }
+
+    .quote-tag::after {
+      content: ' / ';
+      color: rgba(255, 165, 0, 0.6);
+      font-size: 0.7em;
+      margin: 0 3px;
+    }
+
+    .quote-tag:last-child::after {
+      content: '';
+    }
+
+    /* Timeline dot */
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      width: 20px;
+      height: 20px;
+      background: var(--fire-accent);
+      border: 4px solid var(--snow-primary);
+      border-radius: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      box-shadow: 0 0 20px var(--fire-accent);
+    }
+
+    /* ===== Related Videos Mosaic Section ===== */
+    .mosaic-section {
+      position: relative;
+      padding: var(--section-padding) 0;
+      overflow: hidden;
+      z-index: 10;
+      background: linear-gradient(180deg, #300505, #8b0000);
+    }
+
+    .mosaic-section::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 150px;
+      background: linear-gradient(180deg, transparent 0%, rgba(139, 0, 0, 0.4) 100%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .mosaic-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      text-align: center;
+      margin-bottom: 60px;
+      letter-spacing: 0.1em;
+      padding: 0 20px;
+    }
+
+    .mosaic-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .mosaic-track {
+      display: flex;
+      gap: 20px;
+      animation: scrollMosaic 60s linear infinite;
+      width: max-content;
+    }
+
+    .mosaic-track:hover {
+      animation-play-state: paused;
+    }
+
+    #mosaicRow2 {
+      animation-duration: 70s;
+    }
+
+    #mosaicRow3 {
+      animation-duration: 80s;
+    }
+
+    .mosaic-item {
+      flex: 0 0 300px;
+      height: 200px;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.3s ease;
+    }
+
+    .mosaic-item:hover {
+      transform: scale(1.05);
+      z-index: 5;
+    }
+
+    .mosaic-link {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .mosaic-thumbnail {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: filter 0.3s ease;
+    }
+
+    .mosaic-item:hover .mosaic-thumbnail {
+      filter: brightness(1.2);
+    }
+
+    /* ===== CTA Section (Fire) ===== */
+    .cta-section {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: var(--section-padding) 20px 200px 20px;
+      background:
+        radial-gradient(ellipse 120% 80% at bottom left, rgba(0, 0, 0, 0.7) 0%, transparent 60%),
+        radial-gradient(ellipse 120% 80% at bottom right, rgba(0, 0, 0, 0.7) 0%, transparent 60%),
+        var(--fire-primary);
+      overflow: hidden;
+    }
+
+    #fireCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .cta-message {
+      font-family: var(--font-heading);
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      font-weight: 900;
+      margin-bottom: 20px;
+      text-shadow: 0 0 30px rgba(255, 69, 0, 0.8);
+      letter-spacing: 0.05em;
+    }
+
+    .cta-date {
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
+      font-weight: 900;
+      color: var(--fire-accent);
+      margin-bottom: 20px;
+      text-shadow: 0 0 40px var(--fire-accent);
+    }
+
+    .countdown {
+      font-size: clamp(1.2rem, 3vw, 2rem);
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 40px;
+      text-shadow:
+        0 0 10px rgba(255, 255, 255, 0.4),
+        0 0 20px rgba(255, 165, 0, 0.3);
+      letter-spacing: 0.1em;
+    }
+
+    .twitter-tweet {
+      margin: 0 auto !important;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 20px 60px;
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      font-weight: 700;
+      color: #fff;
+      background: linear-gradient(135deg, var(--fire-secondary), var(--fire-accent));
+      border: none;
+      border-radius: 50px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      animation: pulseButton 2s ease-in-out infinite;
+      box-shadow: 0 0 30px rgba(255, 69, 0, 0.7);
+    }
+
+    .cta-button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 50px rgba(255, 165, 0, 1);
+    }
+
+    /* ===== Footer ===== */
+    .footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 40px 20px;
+      text-align: center;
+      font-size: clamp(0.8rem, 2vw, 1rem);
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.5);
+      z-index: 20;
+    }
+
+    .footer a {
+      color: var(--fire-accent);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer a:hover {
+      color: #fff;
+    }
+
+    /* ===== Animations ===== */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translate(-50%, 0);
+      }
+      50% {
+        transform: translate(-50%, -20px);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    @keyframes pulseButton {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 30px rgba(255, 69, 0, 0.7);
+      }
+      50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 50px rgba(255, 69, 0, 1);
+      }
+    }
+
+    @keyframes scrollMosaic {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* ===== Mobile Responsive ===== */
+    @media screen and (max-width: 768px) {
+      :root {
+        --section-padding: var(--section-padding-mobile);
+      }
+
+      /* Timeline adjustments for mobile */
+      .timeline-line {
+        left: 20px;
+      }
+
+      .timeline-item::before {
+        left: 20px;
+      }
+
+      .timeline-item:nth-child(odd) .timeline-content,
+      .timeline-item:nth-child(even) .timeline-content {
+        margin: 0;
+        padding-left: 60px;
+        padding-right: 20px;
+        text-align: left;
+      }
+
+      .timeline-item {
+        margin-bottom: 100px;
+      }
+
+      /* Hide thumbnail background on mobile */
+      .timeline-item::after {
+        display: none;
+      }
+
+      /* Show quotes cloud below content on mobile */
+      .timeline-quotes-cloud {
+        position: relative;
+        top: auto;
+        left: auto !important;
+        right: auto !important;
+        transform: none;
+        margin-top: 20px;
+        max-height: none;
+        overflow: visible;
+      }
+
+      .mosaic-item {
+        flex: 0 0 250px;
+        height: 150px;
+      }
+
+      .scroll-indicator {
+        bottom: 20px;
+      }
+
+      /* Adjust Twitter embed width on mobile */
+      .twitter-tweet {
+        max-width: 100% !important;
+      }
+
+      /* Control line break for hero title on mobile */
+      .hero-title {
+        word-spacing: 100vw;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .timeline-catchphrase {
+        font-size: 1.1rem;
+        padding: 15px;
+      }
+
+      .cta-button {
+        padding: 15px 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress" style="width: 0%;"></div>
+
+  <!-- Snow Canvas -->
+  <canvas id="snowCanvas"></canvas>
+
+  <!-- Fire Canvas -->
+  <canvas id="fireCanvas"></canvas>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">刀ピー<wbr>クリスマス</h1>
+      <div class="hero-year">2025</div>
+      <p class="hero-subtitle">あの聖夜が、また巡る。</p>
+      <div class="hero-date">12/25 23:00〜</div>
+    </div>
+    <div class="scroll-indicator"></div>
+  </section>
+
+  <!-- Timeline Section -->
+  <section class="timeline-section">
+    <h2 class="timeline-title">7年間の軌跡</h2>
+    <div class="timeline-container">
+      <div class="timeline-line"></div>
+      <div id="timelineItems"></div>
+    </div>
+  </section>
+
+  <!-- Related Videos Mosaic Section -->
+  <section class="mosaic-section">
+    <div class="mosaic-container">
+      <div id="mosaicRow1" class="mosaic-track"></div>
+      <div id="mosaicRow2" class="mosaic-track" style="animation-delay: -20s;"></div>
+      <div id="mosaicRow3" class="mosaic-track" style="animation-delay: -40s;"></div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="cta-content">
+      <h2 class="cta-message">今年も"目撃"しよう</h2>
+      <div class="cta-date">12/25 23:00〜</div>
+      <div id="countdown" class="countdown"></div>
+      <blockquote class="twitter-tweet">
+        <p lang="ja" dir="ltr">⚔️12/25 23:00〜生放送！🥜<br><br>刀ピークリスマス2025🎅<br>剣持刀也くんの自室で2人きりの生放送をするナッツ！！<br><br>配信は刀也くんのチャンネルにて🎄<br>サンタクロースが再び舞い降りるナッツ🎅 <a href="https://t.co/YJz4CIkr0q">pic.twitter.com/YJz4CIkr0q</a></p>&mdash; オシャレになりたい！ピーナッツくん🥜 (@osyarenuts) <a href="https://twitter.com/osyarenuts/status/2003052626255237272?ref_src=twsrc%5Etfw">December 22, 2025</a>
+      </blockquote>
+      <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+
+    <!-- Footer (Overlay) -->
+    <footer class="footer">
+      <p>このページはファンメイドです。</p>
+      <p>もし問題を見つけられましたら、 <a href="https://twitter.com/maskedikura" target="_blank" rel="noopener noreferrer">@maskedikura</a> までご連絡ください。</p>
+    </footer>
+  </section>
+
+  <script>
+    /**
+     * Toupea Christmas Landing Page
+     * All JavaScript for animations, data rendering, and interactivity
+     */
+
+    // ===== Data Structure =====
+    const toupeaHistory = [
+      {
+        year: 2018,
+        videoUrl: 'https://www.youtube.com/watch?v=jx1rZ2PMhFY',
+        videoTitle: 'ふたりきりのクリスマス',
+        themeSongUrl: 'https://www.youtube.com/live/jx1rZ2PMhFY?t=483s',
+        quotes: ['刀ピー全然足りないじゃん', '裸の付き合いは朝飯前', 'Party All night!', '繋がってたい心 愛深まってった', '僕の胸を深くえぐった', 'にじさんじが通っていった', '剣持くんはロードレーサー', '刀ピーふたり深く絆', 'クリスマスは一緒だね!', '浮気ばっかしてるんじゃないか?', 'あの痕跡間違いない', '多少の駆け引きあっても結局', 'クリスマスを捧げる 決めポーズ!', '剣持 ピーナッツ マジお友達', 'キラキラ', '刻まれているから問題ないね', 'Skypeの返事すぐしちゃダメ!', 'アキ リリ ガッくん 押しのけ', 'いいぞこの調子!', 'マジ夜通し']
+      },
+      {
+        year: 2019,
+        videoUrl: 'https://www.youtube.com/watch?v=DiGN6MY-gGQ',
+        videoTitle: '聖夜を彩るアゴと豆',
+        themeSongUrl: 'https://www.youtube.com/watch?v=QTWa_jw1IGI',
+        quotes: ['Hold me tight!', '差し込んでるmoon light', '本当の姿を見せるから', 'クリスマスだけ譲らない', '二人きり今夜', '部屋の灯りを今すぐ消して', '裸の付き合い', '浮気ばっかしても ぼくは待ってる', '刀ピー足りないまだ', 'みんなは本当の刀也くんを知らない', '肩の力を抜いて', 'いつかふたりで暮らす', '寝室はひとつだけ', '消して リライトして', 'ぼくだけの特権だろ?', 'とがらなくていいよ', 'ぼくも殻を脱いで', '近づけないとこに近づくのは', 'I got you!', 'ガス栓消して']
+      },
+      {
+        year: 2020,
+        videoUrl: 'https://www.youtube.com/watch?v=DRIy2A3RGMA',
+        videoTitle: 'これ無しでは2020年終われないよね',
+        themeSongUrl: 'https://www.youtube.com/watch?v=BVC-dRCz-4A',
+        quotes: ['待ち合わせの密会', '君とボクのガラスのハート 合体', 'やっぱ刀ピーよ!', 'ふたりのナ・イ・シ・ョ', 'マッスルドッキング', '特別な味がするタイミング', 'あーんって口開けてるところめがけて', '魔法にかかったシンデレラみたいね', '刀ピーシンクロニシティ 100%', 'Face to face で直視する 顔と顔', 'まるで紳士とペット', 'ふたりでシングルベット', '夜中までウキウキウォッチング', 'お子様にはちょっぴりショッキング', '月明かりが照らしてるスターダスト', 'ピーナッツって言って とうやって言って', '制服のボタンを外してさ', '行きます銭湯', 'ジョコビッチ ナダル戦うフルセット', '衛星中継されてもしょうがないね']
+      },
+      {
+        year: 2021,
+        videoUrl: 'https://www.youtube.com/watch?v=k89o8zF4H-o',
+        videoTitle: '遂に決着つけようぜ',
+        themeSongUrl: 'https://www.youtube.com/watch?v=ja2zi8SREBc',
+        quotes: ['もう一泊', 'Falling Love', '心 体 抱きしめ合った', '年に一度の続編 待望の', 'X-mas 刀ピー Midnight', '俺ら独走', '俺ら暴走', 'お前がいいなら', 'ここは2人の実家', '愛の芳香剤が充満', 'やっぱ刀ピーよ もしくはピー刀よ', 'お互い止められない感情', '法廷で会いましょう', '周り巻き込む2人の大騒動', 'お腹かかえて転げあった', '俺の狂いかける磁場', 'ベッドの隙間に潜った', '残り香を吸った', '部屋に入るときはちゃんとノックして', 'たまには俺のことをおんぶして']
+      },
+      {
+        year: 2022,
+        videoUrl: 'https://www.youtube.com/watch?v=RW-usgHwOEA',
+        videoTitle: 'Forever',
+        themeSongUrl: 'https://www.youtube.com/watch?v=YMxQdHtQFGc',
+        quotes: ['刀ピーforever', '刀ピーoverdose', '一緒のお墓に入ってくれますか?', '新時代', '永遠になるためにするPLAY', '絶対的 刀ピーいまくるまる毛布', '明日になれば消える魔法', '一瞬の快楽をAll I Want', '真紅の羽で染まる空色', '一緒に死んでくれますか?baby', '食う寝るダンスwith me', 'やめる人間活動', 'お前と人生すってんころりんだ', '君がケンならぼくはバービー', 'このまま殺して?', '失脚の天使には後悔を', '地に落ちた心体とPride', '人形になって空までジャーニー', 'ベートーヴェンに言わしゃこりゃ運命だ', '寝汗をかくGentleman&Gentleman']
+      },
+      {
+        year: 2023,
+        videoUrl: 'https://www.youtube.com/watch?v=SBEJ-mR1FrA',
+        videoTitle: 'Endless',
+        themeSongUrl: 'https://www.youtube.com/watch?v=SQVaj6OceUY',
+        quotes: ['刀ピー Dilemma', '鎖に繋がれたシンフォニア', '12月25日のこと 今夜だけ罪を許されてるの', '年に一度の決戦', 'This is the X day', '好きだよ やっぱり覚えてる', '遠のいていく', 'ぼくをもっと気にかけて', 'にじさんじやめて ていうかろふまおやめて', 'ぼくだけの存在じゃないことを', 'デカいステージの 君を見て思った', '真っ赤な薔薇を送ろう', '武者震う年に一度の決戦', '外せよそのネックレス', '剥がせよそのレッテル', 'ちぐはぐな心 不安定', '荒らすのはやめて', 'はじめて会った時', 'why no?', 'チュッてして 照れてる君の']
+      },
+      {
+        year: 2024,
+        videoUrl: 'https://www.youtube.com/watch?v=QpZsFfgWcUc',
+        videoTitle: '戦え',
+        themeSongUrl: 'https://www.youtube.com/watch?v=uIjv5_hpHZk',
+        quotes: ['刀ピークライシスト', '永遠に', '燃えてく体', '新時代', '真紅の羽で染まる空色', '刀也の色が この体に染みついたまま', 'Twilightの空', '禁断を破った口内', 'ピストルの弾丸を通過して', '失脚の天使には後悔を', '絡まった2人からジョバイロ', '地に落ちた心体とPride', 'この楽園から追放せよ', 'ピー刀が作るのは きんぴら', 'この身も心も 捧ぐ全部空っぽ', '有限と無限の気分がした', '一瞬の快楽をAll I Want', '堕落したmy heart soul', '危険なヘビがそそのかして', '乳飲み子']
+      }
+    ];
+
+    // Related videos data
+    const relatedVideos = [
+      { url: 'https://www.youtube.com/watch?v=nWd1Kj8tU0g' },
+      { url: 'https://www.youtube.com/watch?v=j8ttm3ZUFIQ' },
+      { url: 'https://www.youtube.com/watch?v=ONv6FV2YlmE' },
+      { url: 'https://www.youtube.com/embed/nE80h8MwRAE' },
+      { url: 'https://www.youtube.com/embed/3fuurnC4GZE' },
+      { url: 'https://www.youtube.com/embed/X4FoDaQNTC0' },
+      { url: 'https://www.youtube.com/embed/_KedeHHV2vY' },
+      { url: 'https://www.youtube.com/embed/paPEYH2UYYI' },
+      { url: 'https://www.youtube.com/embed/cE65HSjWe7c' },
+      { url: 'https://www.youtube.com/embed/qVOcggxUKP0' },
+      { url: 'https://www.youtube.com/embed/M03O3GRE860' },
+      { url: 'https://www.youtube.com/embed/nQ911Nkd1VA' },
+      { url: 'https://www.youtube.com/watch?v=YjHGLK-qsJM' },
+      { url: 'https://www.youtube.com/watch?v=TOeIzXX3o5M' },
+      { url: 'https://www.youtube.com/watch?v=Oj4otPEmWKA' },
+      { url: 'https://www.youtube.com/embed/--IInFGnBvU' },
+      { url: 'https://www.youtube.com/embed/_QUqySeJyxY' },
+      { url: 'https://www.youtube.com/watch?v=qXixrIYY_gg' },
+      { url: 'https://www.youtube.com/embed/7yidGbUGz1c' },
+      { url: 'https://www.youtube.com/watch?v=Q-y7VIOamP0' },
+      { url: 'https://www.youtube.com/embed/UVx7qAXVoqQ' },
+      { url: 'https://www.youtube.com/embed/dMRlx5BDN4I' },
+      { url: 'https://www.youtube.com/embed/ERkGWuO0zn0' },
+      { url: 'https://www.youtube.com/embed/ajJVljpAYiI' },
+      { url: 'https://www.youtube.com/watch?v=HkvwoHz3Dek' },
+      { url: 'https://www.youtube.com/watch?v=gQt9-EEKl6I' },
+      { url: 'https://www.youtube.com/watch?v=5pTKDOrf7Ms' },
+      { url: 'https://www.youtube.com/watch?v=0KqAS3x1kYg' },
+      { url: 'https://www.youtube.com/watch?v=VxyGxypcHEQ' },
+      { url: 'https://www.youtube.com/embed/Qkt1IUH06Bg' },
+      { url: 'https://www.youtube.com/embed/qrplRTqsUh8' },
+      { url: 'https://www.youtube.com/embed/xhKBuTXlMuo' },
+      { url: 'https://www.youtube.com/watch?v=gc7IVYDqCKI' },
+      { url: 'https://www.youtube.com/embed/Flzu9iBvzbY' },
+      { url: 'https://www.youtube.com/embed/rUd5xZSP9K0' },
+      { url: 'https://www.youtube.com/embed/QyOlAxbzFy0' }
+    ];
+
+    // ===== Utility Functions =====
+
+    /**
+     * Extract YouTube video ID from URL
+     */
+    function getYouTubeId(url) {
+      const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+      const match = url.match(regExp);
+      return (match && match[2].length === 11) ? match[2] : null;
+    }
+
+    /**
+     * Throttle function for performance optimization
+     */
+    function throttle(func, wait) {
+      let timeout;
+      return function executedFunction(...args) {
+        const later = () => {
+          clearTimeout(timeout);
+          func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+      };
+    }
+
+    // ===== Timeline Rendering =====
+
+    /**
+     * Render timeline items dynamically
+     */
+    function renderTimeline() {
+      const container = document.getElementById('timelineItems');
+
+      toupeaHistory.forEach((item, index) => {
+        const timelineItem = document.createElement('div');
+        timelineItem.className = 'timeline-item';
+        timelineItem.dataset.year = item.year;
+
+        const videoId = getYouTubeId(item.videoUrl);
+        const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+        timelineItem.style.setProperty('--bg-thumbnail', `url(${thumbnailUrl})`);
+
+        let quotesHTML = '';
+        if (item.quotes && item.quotes.length > 0) {
+          const isMobile = window.innerWidth < 768;
+          const quoteCount = isMobile ? 8 : 15;
+
+          const quoteTags = item.quotes.slice(0, quoteCount).map((quote, index) => {
+            let fontSize;
+            if (isMobile) {
+              // Mobile: simpler distribution
+              if (index < 1) {
+                fontSize = 1.8 + Math.random() * 0.6; // 1.8〜2.4rem
+              } else if (index < 6) {
+                fontSize = 1.0 + Math.random() * 0.6; // 1.0〜1.6rem
+              } else {
+                fontSize = 0.7 + Math.random() * 0.3; // 0.7〜1.0rem
+              }
+            } else {
+              // Desktop: original distribution
+              if (index < 2) {
+                fontSize = 2.0 + Math.random() * 0.8; // 2.0〜2.8rem
+              } else if (index < 12) {
+                fontSize = 1.0 + Math.random() * 0.8; // 1.0〜1.8rem
+              } else {
+                fontSize = 0.6 + Math.random() * 0.4; // 0.6〜1.0rem
+              }
+            }
+            return { quote, fontSize };
+          })
+          .sort(() => Math.random() - 0.5) // Shuffle
+          .map(({ quote, fontSize }) => {
+            return `<span class="quote-tag" style="font-size: ${fontSize}rem;">${quote}</span>`;
+          })
+          .join('');
+
+          quotesHTML = `
+            <div class="timeline-quotes-cloud">
+              ${quoteTags}
+            </div>
+          `;
+        }
+
+        timelineItem.innerHTML = `
+          <div class="timeline-content">
+            <div class="timeline-year">${item.year}</div>
+            <div class="timeline-video-wrapper">
+              <iframe
+                src="https://www.youtube.com/embed/${videoId}"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                loading="lazy">
+              </iframe>
+            </div>
+            <div class="timeline-catchphrase">"${item.videoTitle}"</div>
+            <div class="timeline-links">
+              <a href="${item.themeSongUrl}" class="timeline-link" target="_blank" rel="noopener noreferrer">テーマソング ↗</a>
+            </div>
+            ${quotesHTML}
+          </div>
+        `;
+
+        container.appendChild(timelineItem);
+      });
+    }
+
+    // ===== Mosaic Rendering =====
+
+    /**
+     * Render related videos mosaic in 3 rows with YouTube thumbnails
+     * Create duplicate track for infinite scroll effect
+     */
+    function renderMosaic() {
+      const rows = ['mosaicRow1', 'mosaicRow2', 'mosaicRow3'];
+
+      rows.forEach(rowId => {
+        const track = document.getElementById(rowId);
+
+        // Create mosaic items twice for infinite scroll
+        for (let i = 0; i < 2; i++) {
+          relatedVideos.forEach(video => {
+            const videoId = getYouTubeId(video.url);
+            const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+
+            const item = document.createElement('div');
+            item.className = 'mosaic-item';
+            item.innerHTML = `
+              <a href="${video.url}" target="_blank" rel="noopener noreferrer" class="mosaic-link">
+                <img src="${thumbnailUrl}" alt="関連動画" class="mosaic-thumbnail" loading="lazy">
+              </a>
+            `;
+            track.appendChild(item);
+          });
+        }
+      });
+    }
+
+    // ===== Snow Animation (Canvas) =====
+
+    /**
+     * Snow particle system using Canvas API
+     */
+    function initSnowAnimation() {
+      const canvas = document.getElementById('snowCanvas');
+      const ctx = canvas.getContext('2d');
+
+      // Set canvas size
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
+
+      // Snow particle class
+      class Snowflake {
+        constructor(isInitial = false) {
+          this.isSnowflake = Math.random() > 0.3; // 70% normal, 30% crystal
+          this.reset(isInitial);
+        }
+
+        reset(isInitial = false) {
+          this.x = Math.random() * canvas.width;
+          // Initial placement: spread across entire screen
+          this.y = isInitial ? Math.random() * canvas.height : -10;
+          this.radius = Math.random() * 3 + 1;
+          this.speed = Math.random() * 1 + 0.5;
+          this.wind = Math.random() * 0.5 - 0.25;
+          this.opacity = Math.random() * 0.5 + 0.3;
+          this.rotation = Math.random() * Math.PI * 2;
+          this.rotationSpeed = (Math.random() - 0.5) * 0.02;
+        }
+
+        update() {
+          this.y += this.speed;
+          this.x += this.wind;
+          this.rotation += this.rotationSpeed;
+
+          // Reset if snowflake goes off screen
+          if (this.y > canvas.height) {
+            this.reset(false);
+          }
+
+          if (this.x > canvas.width || this.x < 0) {
+            this.x = Math.random() * canvas.width;
+          }
+        }
+
+        draw() {
+          ctx.save();
+          ctx.translate(this.x, this.y);
+          ctx.rotate(this.rotation);
+          ctx.globalAlpha = this.opacity;
+
+          if (this.isSnowflake) {
+            // Draw simple circle
+            ctx.beginPath();
+            ctx.arc(0, 0, this.radius, 0, Math.PI * 2);
+            ctx.fillStyle = '#ffffff';
+            ctx.fill();
+          } else {
+            // Draw snowflake crystal (6 lines)
+            ctx.strokeStyle = '#ffffff';
+            ctx.lineWidth = this.radius * 0.4;
+            const armLength = this.radius * 2;
+
+            for (let i = 0; i < 6; i++) {
+              const angle = (Math.PI / 3) * i;
+              ctx.beginPath();
+              ctx.moveTo(0, 0);
+              ctx.lineTo(
+                Math.cos(angle) * armLength,
+                Math.sin(angle) * armLength
+              );
+              ctx.stroke();
+            }
+          }
+
+          ctx.restore();
+        }
+      }
+
+      // Create snowflakes (reduce count on mobile for performance)
+      const snowflakeCount = window.innerWidth < 768 ? 100 : 200;
+      const snowflakes = Array.from({ length: snowflakeCount }, () => new Snowflake(true));
+
+      // Animation loop
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        snowflakes.forEach(snowflake => {
+          snowflake.update();
+          snowflake.draw();
+        });
+
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+    }
+
+    // ===== Fire Animation (Canvas) =====
+
+    /**
+     * Fire particle system using Canvas API
+     */
+    function initFireAnimation() {
+      const canvas = document.getElementById('fireCanvas');
+      const ctx = canvas.getContext('2d');
+
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
+
+      class FireParticle {
+        constructor() {
+          this.reset();
+        }
+
+        reset() {
+          this.x = Math.random() * canvas.width;
+          this.y = canvas.height + 20;
+          this.radius = Math.random() * 20 + 10; // Larger particles (10-30px)
+          this.speed = Math.random() * 3 + 2; // Faster speed
+          this.opacity = Math.random() * 0.6 + 0.4;
+          this.hue = Math.random() * 60; // 0-60 for red to yellow
+          this.sway = (Math.random() - 0.5) * 2; // Horizontal sway
+          this.swaySpeed = (Math.random() - 0.5) * 0.5;
+          this.life = 1.0; // Life cycle for color transition
+        }
+
+        update() {
+          this.y -= this.speed;
+          this.x += this.sway;
+          this.sway += this.swaySpeed;
+          this.life -= 0.008;
+          this.opacity -= 0.008;
+          this.radius -= 0.1;
+
+          // Color shifts from red (bottom) to yellow (top)
+          this.hue = Math.min(60, (1 - this.life) * 60);
+
+          if (this.y < 0 || this.opacity <= 0 || this.radius <= 0) {
+            this.reset();
+          }
+        }
+
+        draw() {
+          ctx.save();
+          ctx.globalAlpha = this.opacity;
+          ctx.shadowBlur = 40; // Stronger blur for softer flame look
+          ctx.shadowColor = `hsla(${this.hue}, 100%, 50%, ${this.opacity})`;
+
+          // Create gradient for more realistic flame
+          const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius);
+          gradient.addColorStop(0, `hsla(${this.hue}, 100%, 70%, ${this.opacity})`);
+          gradient.addColorStop(0.5, `hsla(${this.hue}, 100%, 50%, ${this.opacity * 0.7})`);
+          gradient.addColorStop(1, `hsla(${this.hue}, 100%, 30%, 0)`);
+
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          ctx.fillStyle = gradient;
+          ctx.fill();
+          ctx.restore();
+        }
+      }
+
+      const fireParticleCount = window.innerWidth < 768 ? 80 : 150; // More particles
+      const fireParticles = Array.from({ length: fireParticleCount }, () => new FireParticle());
+
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        fireParticles.forEach(particle => {
+          particle.update();
+          particle.draw();
+        });
+
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+    }
+
+    // ===== Scroll Animations =====
+
+    /**
+     * Intersection Observer for timeline items fade-in
+     */
+    function initScrollAnimations() {
+      const observerOptions = {
+        threshold: 0.2,
+        rootMargin: '0px 0px -100px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.timeline-item').forEach(item => {
+        observer.observe(item);
+      });
+    }
+
+    /**
+     * Parallax effect and background color transition based on scroll
+     * Uses HSL color space for smooth transitions
+     */
+    function initParallaxEffect() {
+      const handleScroll = throttle(() => {
+        const scrolled = window.pageYOffset;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = Math.min(scrolled / docHeight, 1);
+
+        // Smooth background color transition using HSL (black to red)
+        const body = document.body;
+        // Start from dark (low saturation) to red (high saturation)
+        const hue = 0; // Red hue
+        const saturation = Math.min(100, progress * 150); // Gradually increase saturation
+        const lightness = Math.min(15, 5 + (progress * 12)); // Gradually increase lightness
+
+        body.style.background = `linear-gradient(180deg,
+          hsl(${hue}, ${saturation}%, ${lightness}%) 0%,
+          hsl(${hue}, ${saturation * 0.7}%, ${lightness * 0.6}%) 100%)`;
+
+        // Update scroll progress bar
+        const progressBar = document.getElementById('scrollProgress');
+        if (progressBar) {
+          progressBar.style.width = `${progress * 100}%`;
+        }
+
+        // Snow and fire particle canvas transition
+        const snowCanvas = document.getElementById('snowCanvas');
+        const fireCanvas = document.getElementById('fireCanvas');
+
+        if (progress < 0.3) {
+          // Show snow only
+          snowCanvas.style.opacity = 1 - (progress * 1.5);
+          if (fireCanvas) fireCanvas.style.opacity = 0;
+        } else if (progress < 0.5) {
+          // Transition: fade out snow, fade in fire
+          snowCanvas.style.opacity = Math.max(0, 1 - ((progress - 0.3) / 0.2) * 1.5);
+          if (fireCanvas) fireCanvas.style.opacity = Math.min(0.3, (progress - 0.3) / 0.2);
+        } else {
+          // Show fire only, gradually increase opacity
+          snowCanvas.style.opacity = 0;
+          if (fireCanvas) fireCanvas.style.opacity = Math.min(1, 0.3 + (progress - 0.5) * 1.4);
+        }
+      }, 50);
+
+      window.addEventListener('scroll', handleScroll);
+    }
+
+    /**
+     * Smooth scroll for scroll indicator
+     */
+    function initScrollIndicator() {
+      const indicator = document.querySelector('.scroll-indicator');
+      indicator.addEventListener('click', () => {
+        window.scrollTo({
+          top: window.innerHeight,
+          behavior: 'smooth'
+        });
+      });
+    }
+
+    /**
+     * Countdown timer to 12/25 23:00
+     */
+    function initCountdown() {
+      const countdownElement = document.getElementById('countdown');
+      if (!countdownElement) return;
+
+      function updateCountdown() {
+        const now = new Date();
+        const targetDate = new Date('2025-12-25T23:00:00');
+
+        const diff = targetDate - now;
+
+        if (diff <= 0) {
+          countdownElement.textContent = '配信開始！';
+          return;
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        countdownElement.textContent = `あと ${days}日 ${hours}時間 ${minutes}分 ${seconds}秒`;
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    }
+
+    // ===== Initialization =====
+
+    /**
+     * Initialize all components when DOM is ready
+     */
+    document.addEventListener('DOMContentLoaded', () => {
+      // Render dynamic content
+      renderTimeline();
+      renderMosaic();
+
+      // Initialize animations
+      initSnowAnimation();
+      initFireAnimation();
+      initScrollAnimations();
+      initParallaxEffect();
+      initScrollIndicator();
+      initCountdown();
+    });
+  </script>
+</body>
+</html>
