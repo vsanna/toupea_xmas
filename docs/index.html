@@ -886,9 +886,6 @@
         timelineItem.dataset.year = item.year;
 
         const videoId = getYouTubeId(item.videoUrl);
-        // Use sddefault for better compatibility with older videos
-        const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/sddefault.jpg`;
-        timelineItem.style.setProperty('--bg-thumbnail', `url(${thumbnailUrl})`);
 
         let quotesHTML = '';
         if (item.quotes && item.quotes.length > 0) {
