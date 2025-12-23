@@ -429,7 +429,7 @@
     .mosaic-track {
       display: flex;
       gap: 20px;
-      animation: scrollMosaic 60s linear infinite;
+      animation: scrollMosaic 90s linear infinite;
       width: max-content;
     }
 
@@ -438,11 +438,11 @@
     }
 
     #mosaicRow2 {
-      animation-duration: 70s;
+      animation-duration: 100s;
     }
 
     #mosaicRow3 {
-      animation-duration: 80s;
+      animation-duration: 110s;
     }
 
     .mosaic-item {
@@ -987,17 +987,27 @@
 
     /**
      * Render related videos mosaic in 3 rows with YouTube thumbnails
+     * Split videos into 3 groups to avoid duplication across rows
      * Create duplicate track for infinite scroll effect
      */
     function renderMosaic() {
       const rows = ['mosaicRow1', 'mosaicRow2', 'mosaicRow3'];
 
-      rows.forEach(rowId => {
+      // Split relatedVideos into 3 equal groups
+      const videosPerRow = Math.ceil(relatedVideos.length / 3);
+      const videoGroups = [
+        relatedVideos.slice(0, videosPerRow),
+        relatedVideos.slice(videosPerRow, videosPerRow * 2),
+        relatedVideos.slice(videosPerRow * 2)
+      ];
+
+      rows.forEach((rowId, rowIndex) => {
         const track = document.getElementById(rowId);
+        const videos = videoGroups[rowIndex];
 
         // Create mosaic items twice for infinite scroll
         for (let i = 0; i < 2; i++) {
-          relatedVideos.forEach(video => {
+          videos.forEach(video => {
             const videoId = getYouTubeId(video.url);
             const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
 
